@@ -14,8 +14,6 @@ if(isset($_POST['submit'])){
         $toast=true;  
     }
 }
-
-
 ?>
 
 
@@ -38,7 +36,7 @@ if(isset($_POST['submit'])){
 
                 <p class="label"><i class="fas fa-envelope fa-xs" aria-hidden="true"></i></span>eMail</p>
                 <input type="email" class="input" name="mail" value="" placeholder="someone@example.com" required>
-                
+
                 <p class="label"><i class="fas fa-phone-alt fa-xs" aria-hidden="true"></i></span>Phone</p>
                 <input type="tel" minlength="10" maxlength="10" class="input" name="phone" pattern="[0-9]{10}" value="" placeholder="9999999999" required>
 
