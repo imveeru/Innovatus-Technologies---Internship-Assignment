@@ -43,7 +43,6 @@ if(isset($_POST['submit'])){
 
                 <p class="label"><i class="fas fa-phone-alt fa-xs" aria-hidden="true"></i></span>Phone</p>
                 <input type="tel" minlength="10" maxlength="10" class="input" name="phone" pattern="[0-9]{10}" value="" placeholder="9999999999" required>
-                <p id="error"></p>
 
                 <p class="label"><i class="fas fa-home fa-xs" aria-hidden="true"></i></span>Address</p>
                 <textarea rows="5" cols="30" name="address" class="input" placeholder="Enter your address..." required></textarea>
