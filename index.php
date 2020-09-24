@@ -9,7 +9,6 @@ if(isset($_POST['submit'])){
     $date=date('Y-m-d',strtotime($_POST['date']));
     $about=$_POST['about'];
 
-
     if(!DB::query('SELECT name FROM user WHERE name=:name',array(':name'=>$name))){
         DB::query('INSERT INTO user VALUES(\'\',:name,:mail,:phone,:address,:date,:about)',array(':name'=>$name,':mail'=>$mail,':phone'=>$phone,':address'=>$address,':date'=>$date,':about'=>$about));
         $toast=true;  
@@ -27,6 +26,7 @@ if(isset($_POST['submit'])){
     <script src="https://kit.fontawesome.com/f6a963a990.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
     <div class="container">
@@ -34,11 +34,11 @@ if(isset($_POST['submit'])){
         <div class="form">
             <form action="index.php"  method="POST" class="formbody">
                 <p class="label"><span><i class="fas fa-user fa-xs" aria-hidden="true"></i></span>Name</p>
-                <input type="text" class="input" name="name" value="" placeholder="username" required>
+                <input type="text" class="input" name="name" value="" placeholder="Someone" required>
                 <p id="error"></p>
 
                 <p class="label"><i class="fas fa-envelope fa-xs" aria-hidden="true"></i></span>eMail</p>
-                <input type="email" class="input" name="mail" value="" placeholder="example@example.com" required>
+                <input type="email" class="input" name="mail" value="" placeholder="someone@example.com" required>
                 <p id="error"></p>
 
                 <p class="label"><i class="fas fa-phone-alt fa-xs" aria-hidden="true"></i></span>Phone</p>
@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
                 <input type="date" class="input" name="date" value="" required>
 
                 <p class="label"><i class="fas fa-info-circle fa-xs" aria-hidden="true"></i></span>About you</p>
-                <textarea rows="5" cols="30" name="about" class="input" placeholder="Something about you..." required ></textarea>
+                <textarea rows="5" cols="30" name="about" class="input" wrap="hard"  placeholder="Something about you..." required ></textarea>
                 
                 <br>
                 <input type="submit" class="btn" name="submit" value="Submit">
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
 </body>
 <?php 
     if($toast==true){
-        echo"Toastify({text: \"Submitted Successfully !🥳\",duration: 3000, backgroundColor:\"black\",className:\"toast\"}).showToast();";
+        echo"<script type=\"text/javascript\">Toastify({text: \"Submitted Successfully !🥳\",duration: 3000, backgroundColor:\"black\",className:\"toast\"}).showToast();</script>";
     }
-?>
+    ?>
 </html>

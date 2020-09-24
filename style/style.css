@@ -91,3 +91,9 @@ i{
         width: 80%;
     }
 }
+
+.toast{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
