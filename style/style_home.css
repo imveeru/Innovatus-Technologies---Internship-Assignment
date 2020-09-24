@@ -1,0 +1,23 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    padding: 25px;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.18);
+    border-radius: 0 0 20px 20px;
+}
+.back-btn{
+    float: right;
+    border-radius: 10px;
+    background: none;
+    border: none;
+    margin-right: 10px;
+}
+.back-btn:hover{
+    cursor: pointer;
+}
+i{
+    padding-right: 6px;
+}
