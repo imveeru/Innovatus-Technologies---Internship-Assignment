@@ -1,6 +1,6 @@
 <?php
 include("./classes/DB.php");
-$toast=false;
+
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $mail=$_POST['mail'];
@@ -9,9 +9,11 @@ if(isset($_POST['submit'])){
     $date=date('Y-m-d',strtotime($_POST['date']));
     $about=$_POST['about'];
 
-    if(!DB::query('SELECT name FROM user WHERE name=:name',array(':name'=>$name))){
+    if(!DB::query('SELECT email FROM user WHERE email=:email',array(':email'=>$mail))){
         DB::query('INSERT INTO user VALUES(\'\',:name,:mail,:phone,:address,:date,:about)',array(':name'=>$name,':mail'=>$mail,':phone'=>$phone,':address'=>$address,':date'=>$date,':about'=>$about));
-        $toast=true;  
+        $toast="success";  
+    }else{
+        $toast="failed";
     }
 }
 ?>
@@ -56,8 +58,10 @@ if(isset($_POST['submit'])){
     </div>
 </body>
 <?php 
-    if($toast==true){
+    if($toast=="success"){
         echo"<script type=\"text/javascript\">Toastify({text: \"Submitted Successfully !🥳\",duration: 3000, backgroundColor:\"black\",className:\"toast\"}).showToast();</script>";
+    }else if($toast=="failed"){
+        echo"<script type=\"text/javascript\">Toastify({text: \"Oops! The email is already registered.\",duration: 3000, backgroundColor:\"black\",className:\"toast\"}).showToast();</script>";
     }
     ?>
 </html>
